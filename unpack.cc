@@ -542,14 +542,14 @@ unpack(const int a87[87], std::string &other_call)
     return "CompoundDirected";
   } else {
     char buf[512];
-    sprintf(buf, "can't parse, starts with %d %d %d\n",
+    snprintf(buf, sizeof(buf)-1, "can't parse, starts with %d %d %d\n",
             a87[0], a87[1], a87[2]);
     return std::string(buf);
   }
 
 #if 0
   char anno[64];
-  sprintf(anno, " <%d%d%d, %d%d%d>", 
+  snprintf(anno, sizeof(anno)-1, " <%d%d%d, %d%d%d>", 
           a87[0], a87[1], a87[2],
           a87[72], a87[73], a87[74]);
   msg += std::string(anno);

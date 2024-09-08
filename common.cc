@@ -49,7 +49,7 @@ call_entry(std::vector<double> samples, int nominal_start,
         {
           static int seq = 0;
           char file[128];
-          sprintf(file, "r%03d.wav", seq);
+          snprintf(file, sizeof(file)-1, "r%03d.wav", seq);
           seq++;
           display_status = std::string("writing ") + file;
           std::vector<double> xx = samples;

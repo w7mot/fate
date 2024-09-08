@@ -487,12 +487,12 @@ draw_screen()
   // --- first divider.
   char info[64];
   if(rx_call != ""){
-    sprintf(info, "---- RX %s HZ=%.0f SNR=%.0f ",
+    snprintf(info, sizeof(info)-1,  "---- RX %s HZ=%.0f SNR=%.0f ",
             rx_call.c_str(),
             rx_hz,
             rx_snr);
   } else {
-    sprintf(info, "---- RX - HZ= SNR= ");
+    snprintf(info, sizeof(info)-1,  "---- RX - HZ= SNR= ");
   }
   printf("%s", info);
   for(int i = 0; i < lay.cols - (int) strlen(info) - 1; i++)
@@ -510,9 +510,9 @@ draw_screen()
 
   // --- second divider.
   if(tx_hz > 0){
-    sprintf(info, "---- TX HZ=%.0f ", tx_hz);
+    snprintf(info, sizeof(info)-1,  "---- TX HZ=%.0f ", tx_hz);
   } else {
-    sprintf(info, "---- TX HZ= ");
+    snprintf(info, sizeof(info)-1,  "---- TX HZ= ");
   }
   printf("%s", info);
   for(int i = 0; i < lay.cols - (int) strlen(info) - 1; i++)
